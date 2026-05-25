@@ -1,0 +1,60 @@
+[package]
+name = "weather-companion"
+version = "0.1.0"
+edition = "2021"
+authors = ["Weather Companion Contributors"]
+description = "Add small cities and unsupported locations to GNOME Weather"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/f-dias-alan/weather-companion"
+
+[[bin]]
+name = "weather-companion"
+path = "src/main.rs"
+
+[dependencies]
+# GTK4 + libadwaita GUI
+gtk4 = { version = "0.9", features = ["v4_12"] }
+libadwaita = { version = "0.7", features = ["v1_4"] }
+
+# GLib/GIO for GNOME integration
+glib = "0.20"
+gio = { version = "0.20", features = ["v2_74"] }
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# HTTP client for Nominatim + airport data
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+
+# JSON (de)serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# CSV parsing (airport database)
+csv = "1"
+
+# SQLite (optional local cache)
+rusqlite = { version = "0.31", features = ["bundled"] }
+
+# Error handling
+anyhow = "1"
+thiserror = "1"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Geo distance (Haversine)
+geo = "0.28"
+
+# Once-cell for global state
+once_cell = "1"
+
+[features]
+default = []
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

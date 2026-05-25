@@ -1,0 +1,9 @@
+/target
+/gitignore
+# Ignore build artifacts
+/target/
+# Ignore Cargo's lock file (if you want to allow it in version control, remove this line)
+Cargo.lock
+# Ignore IDE files
+.idea/
+.vscode/
