@@ -192,7 +192,3 @@ Pull requests are welcome. Please:
 1. Run `cargo fmt` and `cargo clippy` before submitting.
 2. Add tests for any new geographic or parsing logic.
 3. Follow the GNOME Human Interface Guidelines for UI changes.
-
-## License
-
-GPL-3.0-or-later — the same licence as GNOME Weather itself.
