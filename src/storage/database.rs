@@ -15,6 +15,7 @@ use crate::weather::models::SavedLocation;
 use anyhow::{Context, Result};
 use rusqlite::{params, Connection};
 use std::path::PathBuf;
+use std::rc::Rc;
 
 pub struct Database {
     conn: Connection,
